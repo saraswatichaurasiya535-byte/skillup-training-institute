@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn programming and web development at SkillUp Training Institute.">
+  <title>SkillUp Training Institute</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="SkillUp home">SkillUp<span>.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#courses">Courses</a><a href="#contact">Contact</a>
+      <button class="nav-login" id="openAuth">Login / Register</button>
+      <button class="nav-logout hidden" id="logoutButton">Log out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">LEARN • PRACTICE • GROW</p>
+        <h1>Build skills that<br><span>build your future.</span></h1>
+        <p class="hero-description">Practical, beginner-friendly training to help you move forward in technology and web development.</p>
+        <div class="hero-actions"><a class="button primary" href="#courses">Explore courses <span>→</span></a><a class="button secondary" href="#about">About SkillUp</a></div>
+        <p class="welcome-user hidden" id="welcomeUser"></p>
+      </div>
+      <div class="hero-art" aria-label="Learning and technology illustration">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-main"><span class="art-cap">🎓</span><span class="art-code">&lt;/&gt;</span><strong>YOUR NEXT<br>CHAPTER STARTS HERE</strong><small>Skills for tomorrow</small></div>
+        <div class="floating-tag tag-one">💡 Learn by doing</div><div class="floating-tag tag-two">🚀 Grow your skills</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Training highlights">
+      <div><strong>Practical</strong><span>Learning approach</span></div>
+      <div><strong>Beginner-friendly</strong><span>Step-by-step lessons</span></div>
+      <div><strong>Project-based</strong><span>Build as you learn</span></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <p class="eyebrow">WHO WE ARE</p><h2>Learning made practical.</h2>
+      <p class="section-intro">SkillUp Training Institute is a sample institute website built to demonstrate course discovery, account registration, login, and contact enquiries. Replace this text with your institute's real details.</p>
+      <div class="about-points">
+        <article><span>01</span><h3>Learn the basics</h3><p>Understand core concepts with a structured learning path.</p></article>
+        <article><span>02</span><h3>Practice skills</h3><p>Use small exercises to turn theory into practical knowledge.</p></article>
+        <article><span>03</span><h3>Build projects</h3><p>Apply what you learn in projects you can explain and improve.</p></article>
+      </div>
+    </section>
+
+    <section class="section courses-section" id="courses">
+      <div class="section-heading"><div><p class="eyebrow">FIND YOUR PATH</p><h2>Explore our courses</h2></div><p>Choose a course and take your next step.</p></div>
+      <div class="course-grid" id="courseGrid"><p class="loading">Loading courses…</p></div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-heading"><p class="eyebrow">WE'RE HERE TO HELP</p><h2>Let's talk about your goals.</h2><p>Send us an enquiry about a course or training program.</p></div>
+      <div class="contact-layout">
+        <aside class="contact-side"><div class="contact-icon">✉</div><h3>Have a question?</h3><p>Complete the form and your enquiry will be saved to the MongoDB database connected to this project.</p><div class="contact-note">✓ Course enquiries<br>✓ Training questions<br>✓ General information</div></aside>
+        <form class="contact-form" id="contactForm">
+          <label for="contactName">Full name</label><input id="contactName" name="name" autocomplete="name" maxlength="100" required placeholder="Enter your name">
+          <label for="contactEmail">Email address</label><input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+          <label for="contactMessage">Your message</label><textarea id="contactMessage" name="message" rows="4" maxlength="2000" required placeholder="Tell us what you'd like to know (at least 5 characters)"></textarea>
+          <button class="button primary full-width" type="submit">Send enquiry <span>→</span></button><p class="form-status" id="contactStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#home">SkillUp<span>.</span></a><p>Learn today. Build tomorrow.</p><small>© <span id="year"></span> SkillUp Training Institute · Student training project</small></footer>
+
+  <dialog class="auth-dialog" id="authDialog" aria-labelledby="authTitle">
+    <button class="dialog-close" id="closeAuth" aria-label="Close">×</button>
+    <p class="eyebrow">YOUR LEARNING SPACE</p><h2 id="authTitle">Welcome to SkillUp</h2><p class="dialog-subtitle">Log in or create your student account.</p>
+    <div class="auth-tabs"><button class="auth-tab active" data-mode="login" type="button">Login</button><button class="auth-tab" data-mode="register" type="button">Register</button></div>
+    <form id="authForm" class="auth-form">
+      <div id="nameField" class="hidden"><label for="authName">Full name</label><input id="authName" name="name" autocomplete="name" maxlength="80" placeholder="Your full name"></div>
+      <label for="authEmail">Email address</label><input id="authEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+      <label for="authPassword">Password</label><input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required placeholder="At least 8 characters">
+      <p class="password-hint">Use at least 8 characters.</p>
+      <button class="button primary full-width" id="authSubmit" type="submit">Log in</button><p class="form-status" id="authStatus" role="status"></p>
+    </form>
+    <p class="privacy-note">Demo project: do not use a password you use on other websites.</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
